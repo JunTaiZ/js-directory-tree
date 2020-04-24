@@ -1,0 +1,24 @@
+{
+  "name": "js-directory-tree",
+  "version": "1.0.0",
+  "description": "Directory tree structure using Javascript",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunTaiZ/js-directory-tree.git"
+  },
+  "keywords": [
+    "Drectory",
+    "Tree",
+    "Javascript"
+  ],
+  "author": "JunTaiZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JunTaiZ/js-directory-tree/issues"
+  },
+  "homepage": "https://github.com/JunTaiZ/js-directory-tree#readme"
+}
