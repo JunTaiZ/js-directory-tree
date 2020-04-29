@@ -2,15 +2,15 @@
   "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).DirTree = t()
 }(this, function () {
   class DirTree {
-    constructor({root, data}) {
+    constructor({root, data, style}) {
 
       console.log(data)
       const _this = this
       this.root = document.querySelector(root)
       this.data = data
-      this.lineHeight = 20
-      this.marginLeft = 20
-      this.paddingLeft = 15
+      this.lineHeight = style.lineHeight || 20
+      this.marginLeft = style.marginLeft || 28
+      this.paddingLeft = style.paddingLeft || 15
       this.root.addEventListener('click', function (e) {
         let childrenOfParent = e.target.parentElement.children
         if (childrenOfParent.length > 1) {

@@ -1,6 +1,6 @@
 {
   "name": "js-directory-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Directory tree structure using Javascript",
   "main": "js/index.js",
   "scripts": {

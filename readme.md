@@ -58,7 +58,35 @@ import DirTree from 'js-directory-tree';
       }, {
         name: 'index.html',
       }]
-    }]
+    }],
+    style: {
+      lineHeight: 22,
+      marginLeft: 20,
+      paddingLeft: 20
+    }
   })
 ```
 
+## 选项
+
+### root
+目录树绑定的根元素的选择器（最好使用唯一的id选择器）  
+若不唯一，选择第一元素
+
+### data
+```javascript
+item = {
+  name: String, // 目录或文件的名称
+  children: [item] // 该目录有多少个子目录或文件
+}
+data = [item] // 根有多少个目录
+```
+
+### style
+```javascript
+style = {
+  lineHeight: Number, // 每个目录或文件占多高
+  marginLeft: Number, // directory-tree-container 的左外边距
+  paddingLeft: Number // directory-tree-name 的左内边距，用于给图标让位
+}
+```

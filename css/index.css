@@ -27,3 +27,16 @@
   transform: rotate(135deg) scale(0.9);
   height: 6px;
 }
+
+/* 修改以下样式更改目录树样式 */
+.directory-tree-container {
+
+}
+
+.directory-tree-container > .directory-tree-dir {
+
+}
+
+.directory-tree-container > .directory-tree-dir > .directory-tree-name {
+
+}
