@@ -63,6 +63,9 @@ import DirTree from 'js-directory-tree';
       lineHeight: 22,
       marginLeft: 20,
       paddingLeft: 20
+    },
+    bindClick: function (type, name, target) {
+      console.log(type, name, target)
     }
   })
 ```
@@ -88,5 +91,17 @@ style = {
   lineHeight: Number, // 每个目录或文件占多高
   marginLeft: Number, // directory-tree-container 的左外边距
   paddingLeft: Number // directory-tree-name 的左内边距，用于给图标让位
+}
+```
+
+### bindClick
+> 为点击事件添加接口
+
+```javascript
+// type: enum['dir', 'file']
+// name: String  目录名或文件名
+// target: e.target  单击事件的目标
+bindClick = function (type, name, target) {
+  console.log(type, name, target)
 }
 ```

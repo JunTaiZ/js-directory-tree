@@ -9,7 +9,7 @@
 <div id="tree"></div>
 <script src="js/index.js"></script>
 <script>
-  new DirTree({
+  let DT = new DirTree({
     root: '#tree',
     data: [{
       name: 'parent',
@@ -39,6 +39,9 @@
       lineHeight: 22,
       marginLeft: 20,
       paddingLeft: 20
+    },
+    bindClick: function (type, name, target) {
+      console.log(type, name, target)
     }
   })
 </script>

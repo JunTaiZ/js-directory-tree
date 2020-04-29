@@ -2,6 +2,8 @@
 
 ### ToDo
 
+### version 1.1.0
+- [x] 为点击事件添加接口 bindClick
 
 ### version 1.0.1
 - [x] 修复点击时出现多余开关图标的Bug

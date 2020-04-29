@@ -2,33 +2,41 @@
   "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).DirTree = t()
 }(this, function () {
   class DirTree {
-    constructor({root, data, style}) {
+    constructor({root, data, style, bindClick}) {
 
       console.log(data)
       const _this = this
       this.root = document.querySelector(root)
       this.data = data
+      this.bindClick = bindClick || function (type, name, target) {
+        console.log(`type: ${type}, name: ${name}`)
+      }
       this.lineHeight = style.lineHeight || 20
       this.marginLeft = style.marginLeft || 28
       this.paddingLeft = style.paddingLeft || 15
       this.root.addEventListener('click', function (e) {
-        let childrenOfParent = e.target.parentElement.children
-        if (childrenOfParent.length > 1) {
+        let parentDir = e.target.parentElement
+        if (parentDir.className === 'directory-tree-dir') {
+          let childrenOfParent = parentDir.children
+          if (childrenOfParent.length > 1) {
+            _this.bindClick('dir', childrenOfParent[0].innerHTML, e.target)
+            let nameClassName = childrenOfParent[0].className
+            if (nameClassName === 'directory-tree-name dir-icon-close') {
+              childrenOfParent[0].className = 'directory-tree-name dir-icon-open'
+              childrenOfParent[1].style.height = ''
+            } else if (nameClassName === 'directory-tree-name dir-icon-open') {
+              childrenOfParent[1].style.height = '0px'
+              childrenOfParent[0].className = 'directory-tree-name dir-icon-close'
+            }
 
-          let nameClassName = childrenOfParent[0].className
-          if (nameClassName === 'directory-tree-name dir-icon-close') {
-            childrenOfParent[0].className = 'directory-tree-name dir-icon-open'
-            childrenOfParent[1].style.height = ''
-          } else if (nameClassName === 'directory-tree-name dir-icon-open') {
-            childrenOfParent[1].style.height = '0px'
-            childrenOfParent[0].className = 'directory-tree-name dir-icon-close'
+          } else {
+            _this.bindClick('file', childrenOfParent[0].innerHTML, e.target)
           }
-        } else {
-          alert(childrenOfParent[0].innerText)
         }
       })
       this.root.appendChild(this.createTree(data))
     }
+
 
     // return
     //<container>
