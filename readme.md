@@ -1,5 +1,5 @@
 # 原生js实现目录树
-
+## [demo](https://juntaiz.github.io/js-directory-tree/)
 ## 下载
 
 ### 1. npm模块
@@ -7,8 +7,12 @@
 $npm install js-directory-tree
 ```
 #### 模块使用
+```html
+<link rel="stylesheet" href="node_modules/js-directory-tree/css/index.css">
 ```
-// import 'js-directory-tree/css/index.css';
+```
+// 或使用模块引入
+import 'js-directory-tree/css/index.css';
 import DirTree from 'js-directory-tree';
 ```
 

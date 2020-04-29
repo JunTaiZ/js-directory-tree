@@ -1,4 +1,4 @@
-.dir-icon-close::before {
+.directory-tree-name.dir-icon-close::before {
   content: '';
   display: inline-block;
   position: absolute;
@@ -13,7 +13,7 @@
   height: 6px;
 }
 
-.dir-icon-open::before {
+.directory-tree-name.dir-icon-open::before {
   content: '';
   display: inline-block;
   position: absolute;

@@ -12,19 +12,19 @@
       this.marginLeft = 20
       this.paddingLeft = 15
       this.root.addEventListener('click', function (e) {
-        let childrenLen = e.target.parentElement.children.length
-        if (childrenLen > 1) {
+        let childrenOfParent = e.target.parentElement.children
+        if (childrenOfParent.length > 1) {
 
-          let childHeight = e.target.parentElement.children[1].style.height
-          if (childHeight === '0px') {
-            e.target.parentElement.children[0].className = 'dir-icon-open'
-            e.target.parentElement.children[1].style.height = ''
-          } else {
-            e.target.parentElement.children[1].style.height = '0px'
-            e.target.parentElement.children[0].className = 'dir-icon-close'
+          let nameClassName = childrenOfParent[0].className
+          if (nameClassName === 'directory-tree-name dir-icon-close') {
+            childrenOfParent[0].className = 'directory-tree-name dir-icon-open'
+            childrenOfParent[1].style.height = ''
+          } else if (nameClassName === 'directory-tree-name dir-icon-open') {
+            childrenOfParent[1].style.height = '0px'
+            childrenOfParent[0].className = 'directory-tree-name dir-icon-close'
           }
         } else {
-          alert(e.target.parentElement.children[0].innerText)
+          alert(childrenOfParent[0].innerText)
         }
       })
       this.root.appendChild(this.createTree(data))
@@ -34,31 +34,33 @@
     //<container>
     //  <dir>
     //    <name></name>
-    //    <children>
-    //      <container></container>
-    //    </children>
+    //    <children-contaienr>
+    //
+    //    </children-container>
     //  <dir>
     //  <dir>
     //    <name></name>
-    //    <children>
-    //      <container></container>
-    //    </children>
+    //    <children-container>
+    //    </children-container>
     //  <dir>
     //</container>
-
     createTree(data) {
       const container = document.createElement('div')
+      container.className = 'directory-tree-container'
       data.forEach(node => {
         const dir = document.createElement('div')
         const name = document.createElement('div')
+
+        dir.className = 'directory-tree-dir'
         name.innerText = node.name
         name.style.cursor = 'pointer'
         name.style.paddingLeft = this.paddingLeft + 'px'
         name.style.position = 'relative'
+        name.className = 'directory-tree-name'
 
         dir.appendChild(name)
         if (node.hasOwnProperty('children')) {
-          name.className = 'dir-icon-close'
+          name.className = 'directory-tree-name dir-icon-close'
           const children = this.createTree(node.children)
           children.style.marginLeft = this.marginLeft + 'px'
           children.style.height = '0px'
